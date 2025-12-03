@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Onyx Energy Solutions brand colors */
+  --onyx-gold: #d4a574;
+  --onyx-gold-light: #e6c296;
+  --onyx-gold-dark: #b8935c;
+  --onyx-gold-glow: rgba(212, 165, 116, 0.3);
+  --onyx-gold-shadow: rgba(212, 165, 116, 0.5);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 85.7%, 97.3%);
+  --ring: hsl(240, 4.9%, 83.9%);
+}
+
+/* Mobile-first responsive utilities */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Prevent horizontal scrolling */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Ensure text doesn't overflow */
+  h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  /* Mobile button improvements */
+  .mobile-button-stack {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Hero section responsive background */
+.hero-section {
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+@media (orientation: landscape) and (max-height: 600px) {
+  .hero-section {
+    background-size: auto 120% !important;
+    background-position: center center !important;
+  }
+}
+
+@media (orientation: landscape) and (min-aspect-ratio: 16/9) {
+  .hero-section {
+    background-size: 100% auto !important;
+    background-position: center center !important;
+  }
+}
