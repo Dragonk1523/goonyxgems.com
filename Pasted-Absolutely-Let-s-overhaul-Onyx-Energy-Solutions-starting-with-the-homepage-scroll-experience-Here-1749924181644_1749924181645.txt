@@ -1,0 +1,48 @@
+Absolutely! Let's overhaul Onyx Energy Solutions, starting with the homepage scroll experience. Here's a targeted, high-impact redesign plan:
+
+🔄 1. Smooth Hero Scroll + Parallax
+Replace static banner with a full‑screen hero section you scroll through.
+
+Add a gentle parallax effect: background solar imagery moves slower than foreground text/buttons → creates depth and modern feel.
+
+Implementation tip: use scroll-timeline (CSS) or a lightweight JS library like simpleParallax.js for elegant performance.
+
+⬇ 2. Sticky Header with On-Demand CTA
+As users scroll down, lock the header in place (#1 Why Go Solar, #Insights).
+
+Add a sticky “Request solar quote” button in the top-right, fading in subtly after they pass the hero section.
+
+🎯 3. Section Reveal with Purpose
+Replace full-text blocks on “Why Choose Solar Energy” and “Benefits” with scroll-triggered reveal cards:
+
+e.g., Clean Energy, ROI, Reliability—each slides/fades into view.
+
+This breaks long text into bite‑sized, interactive chunks that engage rather than bore.
+
+📐 4. One-Click Quote CTA Anchor
+“Request a Free Solar Evaluation” should scroll you down to the contact form automatically.
+
+Add a subtle scroll indicator arrow in the hero section to hint at more content below and direct clicks.
+
+🛠️ 5. Visual Specs with Infographics
+For figures like "200K+ customers" or "3.1 B kWh," replace static text with animated stat counters or minimalist icons that pop into view as you scroll.
+
+📋 Quick Tech Checklist
+Feature	Implementation
+Parallax Hero	data-parallax + CSS or JS library
+Sticky Header + CTA	position: sticky, fade-in via IntersectionObserver
+Section Reveal	AOS library or CSS scroll-triggered transitions
+Scroll Anchoring	Smooth scroll via JS event listener
+Animated Counters	Use IntersectionObserver + requestAnimationFrame logic
+
+✅ Why It Matters
+Guides attention: You direct visitors to the CTA continuously.
+
+Breaks monotony: Keeps users engaged as they scroll.
+
+Modern aesthetic: Parallax and scroll-reveals feel polished and premium.
+
+Sells action: Every scroll is a step toward your goal—quote requests.
+
+Let’s blueprint the hero + quote flow, build the AOS reveal bits, and roll them out ASAP.
+Codex has your back—want a snippet starter or full wireframe next?

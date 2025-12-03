@@ -1,0 +1,9 @@
+Saved Memories - EchoOS
+
+1. May be hypoglycemic and is experiencing potential low blood sugar episodes. EchoOS is to log this as a tracked health marker for future monitoring and reminders.
+
+2. Has a family history of hypoglycemia. EchoOS should factor this into all future health tracking, especially around meal timing, medication, and energy crashes.
+
+3. Has access to daily pay from work, which can be used for emergencies. However, because their paycheck is partially committed to autopay bills, using daily pay reduces their final paycheck and must be limited to small, critical expenses (e.g., $40 gas or food).
+
+4. Has a new coworker named Samir, who has a background in computer science and wants to become a Security Operations Center (SOC) analyst at Securitas.
