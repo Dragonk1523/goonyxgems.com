@@ -1,0 +1,98 @@
+modules = ["nodejs-20", "web", "postgresql-16"]
+run = "npm run dev"
+hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
+
+[nix]
+channel = "stable-24_05"
+packages = ["vips", "imagemagick"]
+
+[deployment]
+deploymentTarget = "autoscale"
+build = ["npm", "run", "build"]
+run = ["npm", "run", "start"]
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[[ports]]
+localPort = 38619
+externalPort = 3003
+
+[[ports]]
+localPort = 39237
+externalPort = 3002
+
+[[ports]]
+localPort = 39677
+externalPort = 3001
+
+[[ports]]
+localPort = 46517
+externalPort = 3000
+
+[objectStorage]
+defaultBucketID = "replit-objstore-9bdaffcd-9840-4870-9219-05459994b5b6"
+
+[workflows]
+runButton = "Development Server"
+
+[[workflows.workflow]]
+name = "Development Server"
+author = 39285639
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
+
+[[workflows.workflow]]
+name = "Error Checker"
+author = 39285639
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run type-check || echo \"Type check failed\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run lint || echo \"Lint failed\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node -e \"console.log('Checking database connection...'); require('./server/db.ts')\" || echo \"Database connection failed\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node -e \"console.log('Checking object storage...'); const { ObjectStorageService } = require('./server/objectStorage.ts'); new ObjectStorageService().listGalleryItems().then(() => console.log('Object storage OK')).catch(e => console.error('Object storage failed:', e))\""
+
+[[workflows.workflow]]
+name = "Convert HEIC Files"
+author = 39285639
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "tsx scripts/convert-heic-images.ts"
+
+[[workflows.workflow]]
+name = "Sync Database Storage"
+author = 39285639
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "tsx scripts/sync-database-storage.ts"
+
+[[workflows.workflow]]
+name = "Cleanup Object Storage"
+author = 39285639
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "tsx scripts/check-object-sizes.ts"
+
+[agent]
+integrations = ["javascript_object_storage:1.0.0", "javascript_openai_ai_integrations:1.0.0"]
