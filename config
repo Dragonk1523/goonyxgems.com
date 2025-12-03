@@ -6,5 +6,3 @@
 [remote "gitsafe-backup"]
 	url = git://gitsafe:5418/backup.git
 	fetch = +refs/heads/*:refs/remotes/gitsafe-backup/*
-[lfs]
-	repositoryformatversion = 0
